@@ -1,0 +1,23 @@
+<h1> List of Products </h1>
+<%= link_to 'Add Product', new_product_path %>
+
+<table>
+    <tr>
+        <th>Product Name </th>
+        <th>Product Price </th>
+    </tr>
+
+    <% @products.each do |p| %>
+    <tr>
+        <td><%= p.name %></td>
+        <td><%= p.price %></td>
+        <td><%= link_to 'Show', product_path(p)%></td>
+        <td><%= link_to 'edit', edit_product_path(p)%></td>
+        <td><%= link_to 'destroy', product_path(p),
+                                    method: :"delete",
+                                    data: {confirm: "Are you Sure"} %></td>
+    </tr>
+    <%end%>
+
+
+</table>
